@@ -1,0 +1,545 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TrustStrip from '../../components/TrustStrip.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Business Valuation Services | Certified & Court-Defensible";
+const description = "Sofer Advisors delivers certified, court-defensible business valuations for sales, 409A, ESOP, estate, and litigation. ABV/ASA credentialed. Get a free estimate.";
+const canonical = "https://soferadvisors.com/business-valuation-services/";
+
+const breadcrumbs = [
+  { label: "Home", href: "https://soferadvisors.com/" },
+  { label: "Business Valuation Services", href: "/business-valuation-services/" }
+];
+
+const faqs = [
+  {
+    question: "What is my business worth?",
+    answer: "Your business is worth its fair market value — the price a willing buyer and willing seller would agree on, both informed and neither forced to act. The only way to know that number with confidence is a professional valuation that examines your earnings, assets, industry, and comparable sales. A rule-of-thumb multiple can give you a rough idea, but it will not hold up with the IRS, a court, or a serious buyer."
+  },
+  {
+    question: "How is a business valued?",
+    answer: "A certified valuation weighs up to three recognized approaches: the income approach (based on earning capacity and cash flow), the market approach (based on sales of comparable businesses and public-company multiples), and the asset approach (based on net asset value). We apply the approaches that fit your business and the purpose of the valuation, then document every assumption so the conclusion is defensible."
+  },
+  {
+    question: "What is fair market value?",
+    answer: "Fair market value is the price at which a business would change hands between a willing buyer and a willing seller, both reasonably informed and neither under compulsion to act. It is the standard of value the IRS recognizes for tax purposes under Revenue Ruling 59-60, and it is the basis for most valuations used in estate, gift, and 409A work."
+  },
+  {
+    question: "What is the difference between a business valuation and an appraisal?",
+    answer: "In practice, the terms are used interchangeably for businesses — both describe a professional opinion of value. The distinction that matters is who prepares it. A certified business valuation from an ABV- or ASA-accredited analyst follows recognized professional standards and documents its methods, which is what makes it defensible to the IRS, a court, or a lender."
+  },
+  {
+    question: "Do I need a certified valuation analyst?",
+    answer: "For any valuation that will be reviewed by a third party — the IRS, a court, a lender, or the other side of a transaction — yes. Certifications such as ABV and ASA signal that the valuation follows recognized professional standards. For high-stakes purposes like estate and gift tax, 409A, ESOP, and litigation, a certified analyst is effectively required for the number to stand up."
+  },
+  {
+    question: "How much does a business valuation cost?",
+    answer: "A standard business valuation typically ranges from $7,500 to $25,000, quoted as a fixed fee up front so there are no hourly surprises. Narrower engagements such as a 409A valuation generally run $2,500 to $9,000. The exact fee depends on the size and complexity of your business and the purpose of the valuation. Request a fixed-fee estimate and we will give you a firm number before any work begins."
+  },
+  {
+    question: "How long does a business valuation take?",
+    answer: "Most standard valuations are complete in 4 to 8 weeks from the point we receive your documents, and narrower engagements such as a 409A are often done in 2 to 4 weeks. The main driver of the timeline is how quickly we receive complete financial information, so we provide a clear document checklist up front. Rush engagements are available when you are working against a deadline."
+  },
+  {
+    question: "Can I value my own business myself?",
+    answer: "You can estimate it, but a self-prepared number will not carry weight with the IRS, a court, a lender, or a buyer, who all expect an independent, certified opinion. An outside valuation also removes the appearance of bias, which matters most in exactly the situations where value is contested — sales, disputes, and tax filings."
+  }
+];
+
+const schemaJson = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://soferadvisors.com/#organization",
+      "name": "Sofer Advisors, LLC",
+      "url": "https://soferadvisors.com/",
+      "logo": "https://soferadvisors.com/wp-content/uploads/2021/09/sofer-logo_tmv2.png"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://soferadvisors.com/business-valuation-services/#webpage",
+      "url": "https://soferadvisors.com/business-valuation-services/",
+      "name": "Business Valuation Services | Certified & Court-Defensible",
+      "description": "Sofer Advisors delivers certified, court-defensible business valuations for sales, 409A, ESOP, estate, and litigation. ABV/ASA credentialed. Get a free estimate.",
+      "isPartOf": { "@id": "https://soferadvisors.com/#organization" },
+      "breadcrumb": { "@id": "https://soferadvisors.com/business-valuation-services/#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://soferadvisors.com/business-valuation-services/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://soferadvisors.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Business Valuation Services",
+          "item": "https://soferadvisors.com/business-valuation-services/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://soferadvisors.com/business-valuation-services/#faq",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  schemaJson={schemaJson}
+  ctaText="Request a Free Consultation"
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- 1. Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="hero-h1">Business Valuation Services</h1>
+        <p class="hero-tagline">Certified, independent valuations you can defend to the IRS, a court, or a buyer.</p>
+        <p class="hero-body">
+          Know what your business is worth — and have a number you can stand behind. Sofer Advisors delivers certified, independent business valuations for owners and their advisors across all 50 states. Whether you are selling, planning your exit, filing with the IRS, settling a dispute, or issuing equity, you get a defensible valuation and a clear explanation of how we reached it.
+        </p>
+        <div class="hero-actions">
+          <a href="/contact-us/" class="btn-primary" onclick="window.trackLeadEvent('business_valuation_hero_request', { cta: 'Request a Free Consultation' });">
+            Request a Free Consultation
+          </a>
+          <span class="hero-phone-call">
+            or call <a href="tel:7707768852">770.776.8852</a>
+          </span>
+        </div>
+        <TrustStrip variant="dark" />
+      </div>
+
+      <div class="hero-card-visual">
+        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #ffffff;">Senior-Led Valuation Practice</h3>
+        <p style="font-size: 0.95rem; color: #cbd5e0; line-height: 1.6; margin-bottom: 1.25rem;">
+          Our valuation engagements are led by <strong>David Hern CPA ABV ASA</strong>, founder of Sofer Advisors. We combine credentialed rigor with clear communication to provide reports that stand up in any boardroom, audit, or courtroom.
+        </p>
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem; color: #e2e8f0;">
+          <div>✓ IRS Revenue Ruling 59-60 Standards</div>
+          <div>✓ USPAP & AICPA Compliant Reports</div>
+          <div>✓ Fixed-Fee Engagements Quoted Up Front</div>
+          <div>✓ Next-Business-Day Communication Guarantee</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. What Is a Business Valuation? -->
+  <section class="section-py bg-subtle">
+    <div class="container-narrow">
+      <div class="section-header">
+        <span class="section-eyebrow">Clear Definition</span>
+        <h2 class="section-title">What Is a Business Valuation?</h2>
+      </div>
+      <p class="answer-first-p">
+        A business valuation is an independent, professional estimate of what your company is worth, expressed as its fair market value — the price a willing buyer and a willing seller would agree on, both reasonably informed and neither under pressure to act. A certified valuation goes beyond a rule-of-thumb estimate: it documents the methods, data, and assumptions behind the number so it holds up with the IRS, a court, a lender, or a buyer.
+      </p>
+      <div class="prose-text">
+        <p>
+          Whether you are exploring a sale, structuring a partnership agreement, or satisfying compliance requirements, knowing your business's true economic value provides the baseline for sound strategic decisions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. When Do You Need a Business Valuation? -->
+  <section class="section-py">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-eyebrow">Key Trigger Events</span>
+        <h2 class="section-title">When Do You Need a Business Valuation?</h2>
+        <p style="max-width: 760px; margin: 1rem auto 0; color: #4a5568; font-size: 1.05rem;">
+          Most owners need a valuation at a turning point — a sale, a filing deadline, a dispute, or a new shareholder. These are the most common reasons clients come to us:
+        </p>
+      </div>
+
+      <div class="trigger-grid">
+        <div class="trigger-card">
+          <h3 class="trigger-title">Selling or Exiting Your Business</h3>
+          <p class="trigger-desc">Know your true market value before you go to market, negotiate from strength, and avoid leaving money on the table.</p>
+          <a href="https://soferadvisors.com/business-valuation-services/transactional-advisory/" class="trigger-link">
+            See Transactional Advisory →
+          </a>
+        </div>
+
+        <div class="trigger-card">
+          <h3 class="trigger-title">Buy-Sell Agreements</h3>
+          <p class="trigger-desc">Set a fair, agreed valuation formula or benchmark between partners before unexpected events arise.</p>
+          <a href="https://soferadvisors.com/insights/blog/buy-sell-agreement-valuation/" class="trigger-link">
+            Explore Buy-Sell Valuations →
+          </a>
+        </div>
+
+        <div class="trigger-card">
+          <h3 class="trigger-title">409A & Equity Compensation</h3>
+          <p class="trigger-desc">Defensible common-stock valuations for stock option grants, SARs, and phantom equity plans.</p>
+          <a href="https://soferadvisors.com/insights/blog/409a-valuation-complete-guide/" class="trigger-link">
+            Learn About 409A Compliance →
+          </a>
+        </div>
+
+        <div class="trigger-card">
+          <h3 class="trigger-title">ESOP Transactions</h3>
+          <p class="trigger-desc">Independent annual and transaction valuations for employee stock ownership plans under ERISA rules.</p>
+          <a href="https://soferadvisors.com/insights/blog/esop-valuation-guide/" class="trigger-link">
+            ESOP Valuation Guide →
+          </a>
+        </div>
+
+        <div class="trigger-card" style="border: 2px solid var(--color-secondary);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-secondary-dark); text-transform: uppercase; margin-bottom: 0.25rem;">Dedicated Practice</div>
+          <h3 class="trigger-title">Estate & Gift Tax</h3>
+          <p class="trigger-desc">IRS-ready valuations for business transfers, Form 706/709 filings, SLATs, GRATs, and succession planning.</p>
+          <a href="/business-valuation-services/estate-gift-tax-valuation/" class="trigger-link" style="color: var(--color-secondary-dark); font-weight: 700;">
+            Estate & Gift Tax Valuation →
+          </a>
+        </div>
+
+        <div class="trigger-card">
+          <h3 class="trigger-title">Divorce & Shareholder Disputes</h3>
+          <p class="trigger-desc">Court-defensible valuations accompanied by experienced expert witness testimony in legal disputes.</p>
+          <a href="https://soferadvisors.com/business-valuation-services/conflict-resolution/" class="trigger-link">
+            Litigation & Conflict Resolution →
+          </a>
+        </div>
+
+        <div class="trigger-card">
+          <h3 class="trigger-title">SBA & Bank Financing</h3>
+          <p class="trigger-desc">SOP-compliant valuations that conventional and SBA 7(a) lenders accept for acquisition and growth loans.</p>
+          <a href="https://soferadvisors.com/business-valuation-services/bank-and-venture-financing/" class="trigger-link">
+            Bank & Venture Financing →
+          </a>
+        </div>
+
+        <div class="trigger-card">
+          <h3 class="trigger-title">Partner Buy-In or Buy-Out</h3>
+          <p class="trigger-desc">An objective, credible number when ownership changes hands or new equity partners enter the firm.</p>
+          <a href="/contact-us/" class="trigger-link">
+            Consult on Ownership Transfer →
+          </a>
+        </div>
+
+        <div class="trigger-card">
+          <h3 class="trigger-title">Financial Reporting (ASC 805 / 350)</h3>
+          <p class="trigger-desc">Audit-ready valuations for purchase price allocation (ASC 805) and annual goodwill impairment testing.</p>
+          <a href="https://soferadvisors.com/business-valuation-services/financial-reporting-company/" class="trigger-link">
+            See Financial Reporting →
+          </a>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2.5rem; background: var(--color-surface-subtle); padding: 1.5rem; border-radius: 6px; border: 1px solid var(--color-border);">
+        <p style="color: var(--color-text-main); font-size: 1.05rem; font-weight: 600;">
+          Not sure which engagement applies to your situation?
+        </p>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-top: 0.25rem;">
+          A short conversation is usually enough for us to point you to the right engagement and provide a fixed-fee proposal.
+        </p>
+        <div style="margin-top: 1rem;">
+          <a href="/contact-us/" class="btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.95rem;">
+            Request a Free Consultation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. How We Value Your Business (Our Approach) -->
+  <section class="section-py bg-subtle">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-eyebrow">Methodology & Rigor</span>
+        <h2 class="section-title">How We Value Your Business (Our Approach)</h2>
+        <p style="max-width: 760px; margin: 1rem auto 0; color: #4a5568; font-size: 1.05rem;">
+          There is no single formula for value. We weigh three recognized approaches and apply the ones that fit your business, your industry, and the reason for the valuation:
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.75rem; margin-bottom: 3.5rem;">
+        <div style="background:#ffffff; border:1px solid var(--color-border); border-radius:8px; padding:2rem;">
+          <div style="color:var(--color-secondary-dark); font-size:1.5rem; font-weight:800; margin-bottom:0.5rem;">01</div>
+          <h3 style="font-size:1.25rem; font-weight:700; color:var(--color-primary); margin-bottom:0.75rem;">Income Approach</h3>
+          <p style="color:var(--color-text-muted); line-height:1.6; font-size:0.95rem;">
+            Values your business based on its earning capacity and projected cash flows. We use Discounted Cash Flow (DCF) modeling and Capitalized Cash Flow methods to reflect your true operational earnings power.
+          </p>
+        </div>
+
+        <div style="background:#ffffff; border:1px solid var(--color-border); border-radius:8px; padding:2rem;">
+          <div style="color:var(--color-secondary-dark); font-size:1.5rem; font-weight:800; margin-bottom:0.5rem;">02</div>
+          <h3 style="font-size:1.25rem; font-weight:700; color:var(--color-primary); margin-bottom:0.75rem;">Market Approach</h3>
+          <p style="color:var(--color-text-muted); line-height:1.6; font-size:0.95rem;">
+            Compares your business to real transaction sales of similar private companies and public-company multiples, including EBITDA multiples, revenue multiples, and industry benchmarks.
+          </p>
+        </div>
+
+        <div style="background:#ffffff; border:1px solid var(--color-border); border-radius:8px; padding:2rem;">
+          <div style="color:var(--color-secondary-dark); font-size:1.5rem; font-weight:800; margin-bottom:0.5rem;">03</div>
+          <h3 style="font-size:1.25rem; font-weight:700; color:var(--color-primary); margin-bottom:0.75rem;">Asset Approach</h3>
+          <p style="color:var(--color-text-muted); line-height:1.6; font-size:0.95rem;">
+            Builds value from the adjusted net worth of what the business owns and owes, restating tangible and intangible assets and liabilities to current fair market value.
+          </p>
+        </div>
+      </div>
+
+      <!-- The Sofer Difference & 4 Phases -->
+      <div style="background:#ffffff; border:1px solid var(--color-border); border-radius:8px; padding:2.5rem;">
+        <div style="text-align:center; max-width:760px; margin:0 auto 2rem;">
+          <h3 style="font-size:1.75rem; font-weight:800; color:var(--color-primary); margin-bottom:0.75rem;">The Sofer Difference: Four-Phase Process</h3>
+          <p style="color:var(--color-text-muted); font-size:1rem; line-height:1.65;">
+            Behind every engagement is our structured process that keeps work clear and conclusions defensible. We operate with a <strong>Heart of a Teacher</strong>: you will understand not just the number, but why it is the number.
+          </p>
+        </div>
+
+        <div class="process-grid" style="margin-top:1.5rem;">
+          <div class="process-card">
+            <div class="process-step-num">01</div>
+            <h4 class="process-name">Discovery</h4>
+            <p class="process-desc">Understand your business model, operational drivers, and the specific regulatory or commercial purpose of the valuation.</p>
+          </div>
+          <div class="process-card">
+            <div class="process-step-num">02</div>
+            <h4 class="process-name">Diligence</h4>
+            <p class="process-desc">Gather and verify historical financials, tax returns, forecasts, normalized EBITDA adjustments, and risk factors.</p>
+          </div>
+          <div class="process-card">
+            <div class="process-step-num">03</div>
+            <h4 class="process-name">Analysis</h4>
+            <p class="process-desc">Apply relevant valuation methodologies, select industry market multiples, assess discounts, and document all assumptions.</p>
+          </div>
+          <div class="process-card">
+            <div class="process-step-num">04</div>
+            <h4 class="process-name">Delivery</h4>
+            <p class="process-desc">Deliver a comprehensive, audit-ready valuation report and walk you through every conclusion in plain language.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Our Business Valuation Services (Practice Areas) -->
+  <section class="section-py">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-eyebrow">Practice Areas</span>
+        <h2 class="section-title">Our Business Valuation Services</h2>
+        <p style="max-width: 760px; margin: 1rem auto 0; color: #4a5568; font-size: 1.05rem;">
+          Every valuation is built for its purpose. Our work falls into three core practice areas — start with the one that matches your need:
+        </p>
+      </div>
+
+      <div class="services-trio-grid">
+        <div class="service-practice-card">
+          <div class="practice-icon" aria-hidden="true">🏛</div>
+          <h3 class="practice-title">Tax & Estate Reporting</h3>
+          <p class="practice-desc">
+            IRS-ready valuations for 409A compliance, estate and gift tax, basis establishment, and succession planning — built to the rigorous fair market value standard the IRS requires.
+          </p>
+          <a href="/business-valuation-services/estate-gift-tax-valuation/" class="practice-link-btn">
+            Explore Estate & Gift Tax Valuation →
+          </a>
+        </div>
+
+        <div class="service-practice-card">
+          <div class="practice-icon" aria-hidden="true">📊</div>
+          <h3 class="practice-title">Financial Reporting</h3>
+          <p class="practice-desc">
+            Audit-ready valuations for financial statements: purchase price allocation (ASC 805), equity compensation (ASC 718), and goodwill and asset impairment testing (ASC 350/360).
+          </p>
+          <a href="https://soferadvisors.com/business-valuation-services/financial-reporting-company/" class="practice-link-btn">
+            Explore Financial Reporting →
+          </a>
+        </div>
+
+        <div class="service-practice-card">
+          <div class="practice-icon" aria-hidden="true">🤝</div>
+          <h3 class="practice-title">Transactional Advisory</h3>
+          <p class="practice-desc">
+            Valuations and opinions that support deals: sales and acquisitions, buy-sell agreements, ESOP transactions, exit planning, and independent fairness and solvency opinions.
+          </p>
+          <a href="https://soferadvisors.com/business-valuation-services/transactional-advisory/" class="practice-link-btn">
+            Explore Transactional Advisory →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Why Choose Sofer Advisors? -->
+  <section class="section-py bg-subtle">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-eyebrow">Certified Excellence</span>
+        <h2 class="section-title">Why Choose Sofer Advisors?</h2>
+        <p style="max-width: 760px; margin: 1rem auto 0; color: #4a5568; font-size: 1.05rem;">
+          A valuation is only as good as the credentials and the team behind it. Sofer Advisors is a certified business valuation firm built for owners who need a number that holds up in any room.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <h3 class="why-card-title"><span>✓</span> Dual Certification</h3>
+          <p class="why-card-desc">Our work is led by <strong>David Hern CPA ABV ASA</strong>, founder of Sofer Advisors — credentials recognized by the IRS, SEC, and FINRA.</p>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title"><span>⚖</span> Court- & IRS-Defensible</h3>
+          <p class="why-card-desc">We have delivered expert witness testimony in 11+ cases across multiple jurisdictions, building every valuation to standards courts and tax examiners accept.</p>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title"><span>👥</span> Full W2 Team</h3>
+          <p class="why-card-desc">Fourteen employees — not a loose network of contractors — with senior-level involvement and quality review on every engagement.</p>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title"><span>⚡</span> Next-Business-Day Response</h3>
+          <p class="why-card-desc">Responsive communication is part of our standard. You hear back from our team the next business day, every time.</p>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title"><span>📍</span> National Coverage</h3>
+          <p class="why-card-desc">We serve clients in all 50 states, with established offices in Atlanta, Nashville, Orlando, and Louisville.</p>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title"><span>★</span> Proven & Recognized</h3>
+          <p class="why-card-desc">Inc. 5000 honoree in both 2024 and 2025, backed by over 180+ five-star Google reviews from business owners and professional advisors.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem; background: #ffffff; border-left: 4px solid var(--color-primary); padding: 1.5rem; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+        <p style="color: var(--color-text-main); font-size: 1rem; line-height: 1.65;">
+          Unlike large national firms built for enterprise clients, we specialize in the middle market and give every owner direct access to a certified valuation expert. Unlike solo practitioners, we bring a full team, major valuation databases, and court-tested experience to the work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Cost & Timeline -->
+  <section class="section-py">
+    <div class="container-narrow">
+      <div class="section-header">
+        <span class="section-eyebrow">Investment & Process</span>
+        <h2 class="section-title">How Much Does a Business Valuation Cost?</h2>
+      </div>
+
+      <div class="info-callout-box">
+        <div class="price-highlight">$7,500 – $25,000 <span style="font-size: 1rem; font-weight: 500; color: #718096;">(Standard Business Valuation)</span></div>
+        <p class="prose-text">
+          A standard business valuation typically ranges from <strong>$7,500 to $25,000</strong>, depending on the size and complexity of your business and the purpose of the valuation. Narrower engagements cost less — a 409A valuation generally runs <strong>$2,500 to $9,000</strong> — while complex financial-reporting work such as purchase price allocation can run higher.
+        </p>
+        <p class="prose-text" style="margin-top: 1rem;">
+          We quote a <strong>fixed fee up front</strong> after scoping your business, so you know the full cost before any work begins. No hourly surprises.
+        </p>
+
+        <div style="margin-top: 1.75rem;">
+          <a href="/contact-us/" class="btn-primary" onclick="window.trackLeadEvent('business_valuation_cost_cta', { cta: 'Get a Fixed-Fee Estimate' });">
+            Get a Fixed-Fee Estimate
+          </a>
+        </div>
+      </div>
+
+      <div style="margin-top: 3.5rem;">
+        <div class="section-header">
+          <span class="section-eyebrow">Turnaround Times</span>
+          <h2 class="section-title">How Long Does a Business Valuation Take?</h2>
+        </div>
+        <div class="prose-text">
+          <p>
+            Most standard business valuations are complete in <strong>4 to 8 weeks</strong> from the point we receive your documents. Narrower engagements such as a 409A move faster — often <strong>2 to 4 weeks</strong> — and complex financial-reporting work can take longer.
+          </p>
+          <p>
+            The biggest factor in your timeline is how quickly we receive complete financial and operating information, so we give you a clear document checklist at the start. If you are working against a deadline, ask us about a <strong>rush engagement</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FAQ Section -->
+  <FaqSection title="Frequently Asked Questions" items={faqs} />
+
+  <!-- 9. Industries We Serve -->
+  <section class="section-py">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-eyebrow">Industry Expertise</span>
+        <h2 class="section-title">Industries We Serve</h2>
+        <p style="max-width: 760px; margin: 1rem auto 0; color: #4a5568; font-size: 1.05rem;">
+          We value businesses across the economy, with deep experience in specialized sectors. For an industry-specific view, see our detailed valuation guides:
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-top: 2rem;">
+        <a href="https://soferadvisors.com/insights/blog/construction-company-valuation-complete-guide/" class="trigger-card" style="text-align: center; padding: 1.75rem 1rem;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;" aria-hidden="true">🏗</div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--color-primary);">Construction Company Valuation</h3>
+          <span style="font-size: 0.85rem; color: var(--color-secondary-dark); font-weight: 600; margin-top: 0.5rem; display: block;">Read Guide →</span>
+        </a>
+
+        <a href="https://soferadvisors.com/insights/blog/saas-valuation-metrics-and-multiples/" class="trigger-card" style="text-align: center; padding: 1.75rem 1rem;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;" aria-hidden="true">💻</div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--color-primary);">Technology & SaaS Valuation</h3>
+          <span style="font-size: 0.85rem; color: var(--color-secondary-dark); font-weight: 600; margin-top: 0.5rem; display: block;">Read Guide →</span>
+        </a>
+
+        <a href="https://soferadvisors.com/insights/blog/medical-practice-valuation-guide/" class="trigger-card" style="text-align: center; padding: 1.75rem 1rem;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;" aria-hidden="true">🏥</div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--color-primary);">Healthcare & Medical Practices</h3>
+          <span style="font-size: 0.85rem; color: var(--color-secondary-dark); font-weight: 600; margin-top: 0.5rem; display: block;">Read Guide →</span>
+        </a>
+
+        <a href="https://soferadvisors.com/insights/blog/restaurant-valuation-rules-of-thumb-and-methods/" class="trigger-card" style="text-align: center; padding: 1.75rem 1rem;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;" aria-hidden="true">🍽</div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--color-primary);">Restaurant & Franchise Valuation</h3>
+          <span style="font-size: 0.85rem; color: var(--color-secondary-dark); font-weight: 600; margin-top: 0.5rem; display: block;">Read Guide →</span>
+        </a>
+
+        <a href="https://soferadvisors.com/insights/blog/retail-business-valuation-guide/" class="trigger-card" style="text-align: center; padding: 1.75rem 1rem;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;" aria-hidden="true">🛍</div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--color-primary);">Retail Business Valuation</h3>
+          <span style="font-size: 0.85rem; color: var(--color-secondary-dark); font-weight: 600; margin-top: 0.5rem; display: block;">Read Guide →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Closing CTA Band -->
+  <section class="closing-cta-section">
+    <div class="container">
+      <h2 class="closing-title">Find Out What Your Business Is Worth</h2>
+      <p class="closing-subtitle">
+        Get a certified, defensible valuation and a clear explanation of the number — from a team that responds the next business day. Request your free consultation and we will tell you exactly what your engagement would involve and what it would cost.
+      </p>
+      <div class="closing-actions">
+        <a href="/contact-us/" class="btn-primary" onclick="window.trackLeadEvent('business_valuation_closing_cta', { cta: 'Request a Free Consultation' });">
+          Request a Free Consultation
+        </a>
+      </div>
+      <p class="closing-phone">
+        Or speak directly with our team: <a href="tel:7707768852">770.776.8852</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

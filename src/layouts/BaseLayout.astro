@@ -1,0 +1,83 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  schemaJson?: any;
+  ctaText?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  schemaJson,
+  ctaText = "Request a Free Consultation"
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Staging Review Mode: Noindex until David Hern sign-off -->
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:site_name" content="Sofer Advisors" />
+  <meta property="og:image" content="https://soferadvisors.com/wp-content/uploads/2021/09/sofer-logo_tmv2.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://soferadvisors.com/wp-content/uploads/2021/09/sofer-logo_tmv2.png" type="image/png" />
+
+  <!-- Structured Data JSON-LD -->
+  {schemaJson && (
+    <script type="application/ld+json" set:html={JSON.stringify(schemaJson, null, 2)} />
+  )}
+
+  <!-- GA4 Lead Event Measurement Handler (Ties to WEB-191) -->
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+
+    // GA4 Lead event dispatch helper
+    window.trackLeadEvent = function(formName, detail) {
+      console.log('[GA4] generate_lead fired:', formName, detail);
+      gtag('event', 'generate_lead', {
+        event_category: 'form',
+        event_label: formName,
+        currency: 'USD',
+        value: 1,
+        page_location: window.location.href,
+        ...detail
+      });
+      window.dataLayer.push({
+        event: 'generate_lead',
+        form_name: formName,
+        submission_time: new Date().toISOString()
+      });
+    };
+  </script>
+</head>
+<body>
+  <Header ctaText={ctaText} />
+  <main id="main-content">
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

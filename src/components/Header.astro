@@ -1,0 +1,59 @@
+---
+interface Props {
+  ctaText?: string;
+}
+
+const { ctaText = "Request a Free Consultation" } = Astro.props;
+---
+
+<div class="preview-banner" role="status">
+  <span><strong>PREVIEW BUILD (AIB-729 & AIB-730)</strong> — Staging review for David Hern sign-off. Not published to live WordPress yet.</span>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="https://soferadvisors.com/" class="brand-link" aria-label="Sofer Advisors Home">
+      <img
+        src="https://soferadvisors.com/wp-content/uploads/2021/09/sofer-logo_tmv2.png"
+        alt="Sofer Advisors — Certified Business Valuation Firm"
+        class="brand-logo-img"
+        width="220"
+        height="52"
+        loading="eager"
+      />
+    </a>
+
+    <nav class="nav-desktop" aria-label="Main Navigation">
+      <div class="nav-item nav-dropdown">
+        <a href="/business-valuation-services/" class="dropdown-trigger">
+          Services <span aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="/business-valuation-services/" class="dropdown-link font-bold">
+            <strong>Business Valuation Services (Hub)</strong>
+          </a>
+          <a href="/business-valuation-services/estate-gift-tax-valuation/" class="dropdown-link sub-item">
+            ↳ Estate & Gift Tax Valuation
+          </a>
+          <a href="https://soferadvisors.com/business-valuation-services/tax-reporting/" class="dropdown-link sub-item">
+            ↳ Tax & Estate Reporting
+          </a>
+          <a href="https://soferadvisors.com/business-valuation-services/financial-reporting-company/" class="dropdown-link sub-item">
+            ↳ Financial Reporting
+          </a>
+          <a href="https://soferadvisors.com/business-valuation-services/transactional-advisory/" class="dropdown-link sub-item">
+            ↳ Transactional Advisory
+          </a>
+        </div>
+      </div>
+
+      <a href="https://soferadvisors.com/about-us/" class="nav-item">About Us</a>
+      <a href="https://soferadvisors.com/insights/" class="nav-item">Insights</a>
+      <a href="/contact-us/" class="nav-item">Contact Us</a>
+
+      <a href="/contact-us/" class="header-cta-btn">
+        {ctaText}
+      </a>
+    </nav>
+  </div>
+</header>

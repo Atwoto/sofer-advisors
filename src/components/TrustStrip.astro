@@ -1,0 +1,28 @@
+---
+interface Props {
+  variant?: "dark" | "light";
+}
+
+const { variant = "dark" } = Astro.props;
+---
+
+<div class={`trust-strip ${variant === "light" ? "trust-strip-light" : ""}`}>
+  <div class="trust-strip-items">
+    <div class="trust-item">
+      <span class="trust-icon" aria-hidden="true">✓</span>
+      <span><strong>ABV & ASA</strong> Certified Firm</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon" aria-hidden="true">★</span>
+      <span><strong>Inc. 5000</strong> Honoree (2024 & 2025)</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon" aria-hidden="true">★</span>
+      <span><strong>180+</strong> Five-Star Google Reviews</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon" aria-hidden="true">⚖</span>
+      <span><strong>Expert Witness</strong> in 11+ Cases</span>
+    </div>
+  </div>
+</div>

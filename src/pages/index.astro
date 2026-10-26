@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Preview Staging | Sofer Advisors Valuation Services';
+const description = 'Staging review site for Sofer Advisors business valuation and estate & gift tax valuation service pages.';
+---
+
+<BaseLayout title={title} description={description} canonical="https://soferadvisors.com/">
+  <section class="hero-section">
+    <div class="site-container">
+      <div style="max-width: 820px; margin: 0 auto; text-align: center;">
+        <span class="badge" style="background-color: var(--color-green-light); color: var(--color-primary-dark); font-weight: 700;">
+          Staging Preview Environment
+        </span>
+        <h1 style="margin-top: 1.25rem;">Sofer Advisors Service Pages Rebuild & Expansion</h1>
+        <p class="hero-tagline" style="margin: 1rem auto 2rem; max-width: 680px;">
+          Preview deployment built per Brief & Content Packs for Jerry and David Hern's review. Staging includes full responsive layouts, Schema.org WebPage + BreadcrumbList + FAQPage markup, and GA4 lead tracking hooks.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; max-width: 1000px; margin: 2.5rem auto 0;">
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <span class="badge" style="background: #e2e8f0; color: #1e293b;">AIB-729 Rebuild</span>
+            <h2 style="font-size: 1.5rem; margin-top: 0.75rem; color: var(--color-primary-dark);">Business Valuation Services</h2>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem; margin: 0.75rem 0 1.5rem;">
+              Full 1,700-word rebuild of the core valuation hub page. Features 9 business valuation triggers, 4-phase "Sofer Difference" methodology, 3 practice areas, transparent fixed-fee structure ($7,500 – $25,000), 8 verified FAQs, and accredited leadership by David Hern CPA ABV ASA.
+            </p>
+            <ul style="padding-left: 1.25rem; font-size: 0.9rem; color: var(--color-text); margin-bottom: 1.5rem; line-height: 1.8;">
+              <li>URL: <code>/business-valuation-services/</code></li>
+              <li>CTA: <strong>"Request a Free Consultation"</strong></li>
+              <li>Schema: WebPage, BreadcrumbList, FAQPage (Zero Service / AggregateRating)</li>
+            </ul>
+          </div>
+          <a href="/business-valuation-services/" class="btn btn-primary" style="text-align: center;">View Business Valuation Page &rarr;</a>
+        </div>
+
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <span class="badge" style="background: #e2e8f0; color: #1e293b;">AIB-730 New Page (Option A)</span>
+            <h2 style="font-size: 1.5rem; margin-top: 0.75rem; color: var(--color-primary-dark);">Estate & Gift Tax Valuation</h2>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem; margin: 0.75rem 0 1.5rem;">
+              Dedicated 1,600-word practice page built to Option A slug structure. Features 6 wealth transfer triggers, Rev. Rul. 59-60 IRS defensibility, DLOM/DLOC discount defense, 2026 TCJA exemption sunset prep, and attorney/CPA collaboration workflows.
+            </p>
+            <ul style="padding-left: 1.25rem; font-size: 0.9rem; color: var(--color-text); margin-bottom: 1.5rem; line-height: 1.8;">
+              <li>URL: <code>/business-valuation-services/estate-gift-tax-valuation/</code></li>
+              <li>CTA: <strong>"Schedule a Free Consultation"</strong></li>
+              <li>Schema: WebPage, BreadcrumbList, FAQPage</li>
+            </ul>
+          </div>
+          <a href="/business-valuation-services/estate-gift-tax-valuation/" class="btn btn-primary" style="text-align: center;">View Estate & Gift Tax Page &rarr;</a>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3.5rem;">
+        <p style="font-size: 0.95rem; color: var(--color-text-muted);">
+          Questions or revisions? Review gate: <strong>Nothing goes live until David Hern signs off.</strong>
+        </p>
+        <a href="/contact-us/" class="btn btn-outline" style="margin-top: 0.75rem;">Test Consultation Form &rarr;</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

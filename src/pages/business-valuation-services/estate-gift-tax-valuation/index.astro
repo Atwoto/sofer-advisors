@@ -1,0 +1,462 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import TrustStrip from '../../../components/TrustStrip.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+
+const title = "Estate & Gift Tax Valuation | IRS-Defensible Appraisals";
+const description = "IRS-defensible business valuations for estate and gift tax: Forms 706 and 709, trusts, and discounts. ABV/ASA-certified appraisers. Request a free estimate.";
+const canonical = "https://soferadvisors.com/business-valuation-services/estate-gift-tax-valuation/";
+
+const breadcrumbs = [
+  { label: "Home", href: "https://soferadvisors.com/" },
+  { label: "Business Valuation Services", href: "/business-valuation-services/" },
+  { label: "Estate & Gift Tax Valuation", href: "/business-valuation-services/estate-gift-tax-valuation/" }
+];
+
+const faqs = [
+  {
+    question: "What is fair market value for estate tax purposes?",
+    answer: "Fair market value is the IRS standard defined in Revenue Ruling 59-60: the price at which an interest would change hands between a willing buyer and a willing seller, both reasonably informed and neither under any compulsion to act. It is the only standard the IRS accepts for estate and gift tax reporting. For a closely held business, reaching it takes a documented analysis of the company's earnings, assets, and comparable transactions, not a rule-of-thumb multiple."
+  },
+  {
+    question: "How are business interests valued for a gift?",
+    answer: "The appraiser values the specific interest being gifted as of the gift date, to the fair market value standard. That means applying the income, market, and asset approaches, then adjusting for the interest's characteristics — chiefly lack of marketability and, for non-controlling stakes, lack of control. The conclusion is reported on Form 709 and should be backed by a qualified appraisal so the gift qualifies for adequate disclosure."
+  },
+  {
+    question: "What valuation discounts apply to estate and gift transfers?",
+    answer: "The two most common are the discount for lack of marketability (DLOM) and the minority or lack-of-control discount (DLOC). A blockage discount can apply to very large holdings. Each discount must be supported with empirical data and documented reasoning, and intra-family transfers must respect the Chapter 14 rules (IRC 2701–2704), including the Section 2704 limits on restrictions that would otherwise inflate the discount."
+  },
+  {
+    question: "What makes an appraisal “qualified” for the IRS?",
+    answer: "A qualified appraisal is prepared by a qualified appraiser — one with recognized credentials such as ABV or ASA and relevant experience — follows accepted standards like USPAP, and includes the specific content the regulations require. A qualified appraisal attached to a gift return supports adequate disclosure, which starts the statute of limitations, and helps shield against the Section 6695A appraiser penalty."
+  },
+  {
+    question: "What is the difference between a Form 706 and a Form 709 valuation?",
+    answer: "Form 709 reports a gift made during life, valuing the interest as of the gift date. Form 706 is the estate tax return, valuing the interest as of the date of death (or the alternate valuation date). The valuation standard is the same for both, but the timing, the applicable discounts, and the surrounding documentation differ, so the two returns call for different engagement planning."
+  },
+  {
+    question: "What is the alternate valuation date?",
+    answer: "Under Section 2032, an estate may elect to value assets six months after the date of death instead of on the date of death. The election applies to the whole estate, not a single asset, and can only be made if it reduces both the gross estate and the estate tax. It is most useful when values have fallen during that window. We model both dates so the executor can make an informed election."
+  },
+  {
+    question: "How much does an estate or gift tax valuation cost?",
+    answer: "Most engagements range from $7,500 to $25,000 and take 4 to 8 weeks, depending on the size and complexity of the business, the number of interests valued, and the transfer structure involved. We provide a fixed fee up front after scoping the work. Contact us for a free estimate on your situation."
+  },
+  {
+    question: "How long does the process take?",
+    answer: "A typical estate or gift tax valuation takes 4 to 8 weeks from the point we have your financial records and transfer details. Timing depends on how quickly documents are provided and the complexity of the interest. When a filing deadline is tight, ask us about an expedited engagement during the initial call."
+  }
+];
+
+const schemaJson = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://soferadvisors.com/#organization",
+      "name": "Sofer Advisors, LLC",
+      "url": "https://soferadvisors.com/",
+      "logo": "https://soferadvisors.com/wp-content/uploads/2021/09/sofer-logo_tmv2.png"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://soferadvisors.com/business-valuation-services/estate-gift-tax-valuation/#webpage",
+      "url": "https://soferadvisors.com/business-valuation-services/estate-gift-tax-valuation/",
+      "name": "Estate & Gift Tax Valuation | IRS-Defensible Appraisals",
+      "description": "IRS-defensible business valuations for estate and gift tax: Forms 706 and 709, trusts, and discounts. ABV/ASA-certified appraisers. Request a free estimate.",
+      "isPartOf": { "@id": "https://soferadvisors.com/#organization" },
+      "breadcrumb": { "@id": "https://soferadvisors.com/business-valuation-services/estate-gift-tax-valuation/#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://soferadvisors.com/business-valuation-services/estate-gift-tax-valuation/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://soferadvisors.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Business Valuation Services",
+          "item": "https://soferadvisors.com/business-valuation-services/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Estate & Gift Tax Valuation",
+          "item": "https://soferadvisors.com/business-valuation-services/estate-gift-tax-valuation/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://soferadvisors.com/business-valuation-services/estate-gift-tax-valuation/#faq",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  schemaJson={schemaJson}
+  ctaText="Schedule a Free Consultation"
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- 1. Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="hero-h1">Estate & Gift Tax Valuation</h1>
+        <p class="hero-tagline">IRS-defensible appraisals of closely held business interests for gifts, estates, and trusts.</p>
+        <p class="hero-body">
+          Transferring ownership of a closely held business requires an independent, audit-tested valuation. Sofer Advisors provides certified business appraisals for owners and their estate planning attorneys, CPAs, and wealth managers — built to strict IRS standards, fully defensible upon examination, and explained with clarity.
+        </p>
+        <div class="hero-actions">
+          <a href="/contact-us/" class="btn-primary" onclick="window.trackLeadEvent('estate_gift_tax_hero_schedule', { cta: 'Schedule a Free Consultation' });">
+            Schedule a Free Consultation
+          </a>
+          <span class="hero-phone-call">
+            or call <a href="tel:7707768852">770.776.8852</a>
+          </span>
+        </div>
+        <TrustStrip variant="dark" />
+      </div>
+
+      <div class="hero-card-visual">
+        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #ffffff;">Audit-Ready Tax Compliance</h3>
+        <p style="font-size: 0.95rem; color: #cbd5e0; line-height: 1.6; margin-bottom: 1.25rem;">
+          Led by <strong>David Hern CPA ABV ASA</strong>, founder of Sofer Advisors, our estate and gift appraisals satisfy all IRS qualified appraiser criteria and Treas. Reg. § 301.6501(c)-1 adequate disclosure rules.
+        </p>
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem; color: #e2e8f0;">
+          <div>✓ Form 706 Estate & Form 709 Gift Tax Compliance</div>
+          <div>✓ Statistically Supported DLOM & DLOC Discounts</div>
+          <div>✓ Adequate Disclosure to Start Statute of Limitations</div>
+          <div>✓ Section 6695A Misstatement Penalty Shield</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. What Is an Estate or Gift Tax Valuation? -->
+  <section class="section-py bg-subtle">
+    <div class="container-narrow">
+      <div class="section-header">
+        <span class="section-eyebrow">Definition & Authority</span>
+        <h2 class="section-title">What Is an Estate or Gift Tax Valuation?</h2>
+      </div>
+      <p class="answer-first-p">
+        An estate or gift tax valuation is an independent appraisal of the fair market value of a closely held business interest for a gift, estate, or trust transfer, prepared under IRS rules. The governing standard is fair market value as defined in Revenue Ruling 59-60: the price at which the interest would change hands between a willing buyer and a willing seller, both reasonably informed and neither under compulsion.
+      </p>
+      <div class="prose-text">
+        <p>
+          When you gift or inherit an interest in a private company, the IRS needs a supportable number, not an estimate. A documented valuation sets the value reported on a gift or estate tax return, supports the discounts you claim, and gives you a conclusion that holds up if the return is examined. It is the difference between a figure you can defend and one you have to walk back.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. When You Need One -->
+  <section class="section-py">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-eyebrow">Transfer Triggers</span>
+        <h2 class="section-title">When You Need an Estate or Gift Tax Valuation</h2>
+        <p style="max-width: 760px; margin: 1rem auto 0; color: #4a5568; font-size: 1.05rem;">
+          You need an estate or gift tax valuation whenever a business interest moves and the IRS wants to see its value. The most common triggers include:
+        </p>
+      </div>
+
+      <div class="trigger-grid">
+        <div class="trigger-card">
+          <h3 class="trigger-title">Gifting Business Interests (Form 709)</h3>
+          <p class="trigger-desc">Reporting non-cash gifts on Form 709, structured to leverage annual gift tax exclusions and lifetime unified credit exemptions.</p>
+          <a href="https://soferadvisors.com/insights/blog/gift-tax-valuation-form-709/" class="trigger-link">
+            Form 709 Valuation Guide →
+          </a>
+        </div>
+
+        <div class="trigger-card">
+          <h3 class="trigger-title">Settling an Estate (Form 706)</h3>
+          <p class="trigger-desc">Valuing closely held operating entities, holding companies, or fractional shares for gross estate inclusion on Form 706.</p>
+          <a href="https://soferadvisors.com/insights/blog/form-706-business-valuation/" class="trigger-link">
+            Form 706 Valuation Overview →
+          </a>
+        </div>
+
+        <div class="trigger-card">
+          <h3 class="trigger-title">Trust Funding & Administration</h3>
+          <p class="trigger-desc">Appraising interests transferred into SLATs, GRATs, SCINs, private annuities, QTIP elections, and estate freeze arrangements.</p>
+          <a href="https://soferadvisors.com/insights/blog/grat-valuation-rules-and-timing/" class="trigger-link">
+            Trust Valuation Insights →
+          </a>
+        </div>
+
+        <div class="trigger-card">
+          <h3 class="trigger-title">Family Limited Partnerships (FLPs)</h3>
+          <p class="trigger-desc">Intra-family transfers and asset holding entities navigating complex Chapter 14 rules (IRC §§ 2701–2704).</p>
+          <a href="https://soferadvisors.com/insights/blog/irc-chapter-14-valuation-rules/" class="trigger-link">
+            Chapter 14 Compliance →
+          </a>
+        </div>
+
+        <div class="trigger-card">
+          <h3 class="trigger-title">Charitable & Non-Cash Transfers</h3>
+          <p class="trigger-desc">Supporting deductions for CLATs, CRUTs, donor-advised funds (DAFs), promissory notes, and private life insurance policies.</p>
+          <a href="https://soferadvisors.com/insights/blog/charitable-lead-annuity-trust-valuation/" class="trigger-link">
+            Charitable Trust Valuation →
+          </a>
+        </div>
+
+        <div class="trigger-card">
+          <h3 class="trigger-title">IRS Examination & Audit Defense</h3>
+          <p class="trigger-desc">Defending reported valuations under examination, responding to Information Document Requests (IDRs), and rebutting IRS engineering reports.</p>
+          <a href="/contact-us/" class="trigger-link">
+            Consult on Audit Defense →
+          </a>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem; background: var(--color-surface-subtle); border-left: 4px solid var(--color-secondary); padding: 1.5rem; border-radius: 4px;">
+        <p style="color: var(--color-text-main); font-size: 1rem; line-height: 1.65;">
+          Most of these transfers share one requirement: a <strong>qualified appraisal</strong> that an examiner can follow from inputs to conclusion. Getting the valuation right at the time of the transfer is far easier than defending a weak one years later.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. How We Determine Fair Market Value -->
+  <section class="section-py bg-subtle">
+    <div class="container-narrow">
+      <div class="section-header">
+        <span class="section-eyebrow">IRS Standard of Value</span>
+        <h2 class="section-title">How We Determine Fair Market Value</h2>
+      </div>
+
+      <div class="prose-text">
+        <p>
+          We value the interest to the fair market value standard set in <strong>Revenue Ruling 59-60</strong>, which directs an appraiser to weigh eight foundational factors — among them the nature and history of the business, economic outlook, book value, earning capacity, dividend-paying capacity, goodwill and intangibles, prior sales of stock, and market prices of comparable publicly traded companies.
+        </p>
+        <p>
+          From there we apply the three recognized approaches to value: the <strong>income approach</strong>, the <strong>market approach</strong>, and the <strong>asset approach</strong>, reconciling them into one supported conclusion rather than an ambiguous range.
+        </p>
+      </div>
+
+      <div style="background:#ffffff; border:1px solid var(--color-border); border-radius:8px; padding:2rem; margin:2rem 0;">
+        <h3 style="font-size:1.3rem; font-weight:700; color:var(--color-primary); margin-bottom:0.75rem;">Documented Defensibility: The Report Behind the Number</h3>
+        <p class="prose-text" style="margin-bottom:0;">
+          The number is only half the engagement. The report behind it is what survives scrutiny. We document every assumption, cite our empirical data and transaction comparables, and explain each judgment so a reviewer — or an IRS examiner — can trace every step. That is <strong>The Sofer Difference</strong>, reflecting our <strong>Heart of a Teacher</strong> approach: you and your estate counsel understand the conclusion, not just receive it.
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.95rem;">
+          For foundational principles, see our comprehensive guide to <a href="https://soferadvisors.com/insights/blog/how-to-calculate-fair-market-value-of-business-expert-guide/">how fair market value is calculated</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Valuation Discounts for Estate & Gift Tax -->
+  <section class="section-py">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-eyebrow">Discounts & Chapter 14</span>
+        <h2 class="section-title">Valuation Discounts for Estate & Gift Tax</h2>
+        <p style="max-width: 760px; margin: 1rem auto 0; color: #4a5568; font-size: 1.05rem;">
+          Closely held business interests rarely transfer at their pro-rata share of total enterprise value. Two discounts drive most adjustments, and both must be rigorously supported with empirical market data:
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2.5rem;">
+        <div style="background:#ffffff; border:1px solid var(--color-border); border-radius:8px; padding:2rem;">
+          <h3 style="font-size:1.35rem; font-weight:700; color:var(--color-primary); margin-bottom:0.75rem;">Discount for Lack of Marketability (DLOM)</h3>
+          <p class="prose-text" style="font-size:0.95rem;">
+            Reflects the inability of an owner in a private company to convert their holding into cash quickly and without substantial transaction costs. We analyze restricted stock studies, pre-IPO studies, and option-pricing volatility models rather than applying flat rules of thumb.
+          </p>
+          <a href="https://soferadvisors.com/insights/blog/discount-for-lack-of-marketability-dlom-guide/" class="trigger-link" style="margin-top:1rem; display:inline-block;">
+            Explore Our DLOM Explainer →
+          </a>
+        </div>
+
+        <div style="background:#ffffff; border:1px solid var(--color-border); border-radius:8px; padding:2rem;">
+          <h3 style="font-size:1.35rem; font-weight:700; color:var(--color-primary); margin-bottom:0.75rem;">Minority / Lack-of-Control Discount (DLOC)</h3>
+          <p class="prose-text" style="font-size:0.95rem;">
+            Accounts for a non-controlling owner's inability to direct distributions, declare dividends, hire or fire management, force a sale, or liquidate the business. Derived from observed control premiums in public and private acquisitions.
+          </p>
+          <a href="https://soferadvisors.com/insights/blog/minority-interest-discount-guide/" class="trigger-link" style="margin-top:1rem; display:inline-block;">
+            Read Minority Discount Guide →
+          </a>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem; background: var(--color-surface-subtle); border: 1px solid var(--color-border); border-radius: 6px; padding: 1.75rem;">
+        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.5rem;">Blockage & Special Disregarded Restrictions (IRC § 2704)</h4>
+        <p class="prose-text" style="font-size: 0.95rem; margin-bottom: 0;">
+          A blockage discount can apply to large, concentrated blocks that cannot be liquidated without depressing prevailing market prices. Intra-family transfers must also adhere strictly to <strong>IRC Chapter 14 (§§ 2701–2704)</strong> guardrails, specifically Section 2704 restrictions on artificial transfer limits. We quantify every adjustment with peer-reviewed empirical benchmarks, because unsupported discounts are the first thing an examiner challenges.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. IRS Compliance & Qualified Appraisal -->
+  <section class="section-py bg-subtle">
+    <div class="container-narrow">
+      <div class="section-header">
+        <span class="section-eyebrow">Regulatory Protection</span>
+        <h2 class="section-title">IRS Compliance & Qualified Appraisal Standards</h2>
+      </div>
+
+      <div class="prose-text">
+        <p>
+          For estate and gift transfers, the appraisal itself has to meet explicit Treasury Regulation definitions. A <strong>qualified appraisal</strong> must be prepared by a <strong>qualified appraiser</strong> — professionals holding accredited credentials such as <strong>ABV (Accredited in Business Valuation)</strong> and <strong>ASA (Accredited Senior Appraiser)</strong> — following recognized national standards such as <strong>USPAP</strong>.
+        </p>
+      </div>
+
+      <div class="trigger-grid" style="margin: 2rem 0; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+        <div style="background:#ffffff; border:1px solid var(--color-border); border-radius:6px; padding:1.5rem;">
+          <h4 style="font-size:1.1rem; font-weight:700; color:var(--color-primary); margin-bottom:0.5rem;">Adequate Disclosure Safe Harbor</h4>
+          <p style="font-size:0.9rem; color:var(--color-text-muted); line-height:1.6;">
+            A qualified appraisal attached to Form 709 satisfies Treas. Reg. § 301.6501(c)-1 adequate disclosure requirements, starting the 3-year statute of limitations so the IRS cannot audit or revalue the gift indefinitely.
+          </p>
+        </div>
+
+        <div style="background:#ffffff; border:1px solid var(--color-border); border-radius:6px; padding:1.5rem;">
+          <h4 style="font-size:1.1rem; font-weight:700; color:var(--color-primary); margin-bottom:0.5rem;">IRC § 6695A Penalty Protection</h4>
+          <p style="font-size:0.9rem; color:var(--color-text-muted); line-height:1.6;">
+            Proper appraisal documentation protects both the taxpayer and counsel from substantial valuation misstatement penalties (IRC § 6662) and preparer penalties under IRC § 6695A.
+          </p>
+        </div>
+
+        <div style="background:#ffffff; border:1px solid var(--color-border); border-radius:6px; padding:1.5rem;">
+          <h4 style="font-size:1.1rem; font-weight:700; color:var(--color-primary); margin-bottom:0.5rem;">Section 2032 Alternate Valuation</h4>
+          <p style="font-size:0.9rem; color:var(--color-text-muted); line-height:1.6;">
+            For estates where asset values declined following death, we evaluate the alternate valuation date 6 months post-death, modeling both scenarios so executors make tax-optimal decisions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Why Choose Sofer Advisors? -->
+  <section class="section-py">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="section-eyebrow">Proven Experience</span>
+        <h2 class="section-title">Why Choose Sofer Advisors?</h2>
+        <p style="max-width: 760px; margin: 1rem auto 0; color: #4a5568; font-size: 1.05rem;">
+          Estate and gift valuations are judged in two rooms: the IRS examination and, if it comes to it, the courtroom. We are built for both.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <h3 class="why-card-title"><span>✓</span> Credentialed Leadership</h3>
+          <p class="why-card-desc">
+            Founded by <strong>David Hern CPA ABV ASA</strong>, founder of Sofer Advisors, who holds dual IRS/SEC/FINRA-recognized credentials and has delivered expert-witness testimony in 11+ cases across multiple jurisdictions. <a href="https://soferadvisors.com/about-us/our-team/david-h-hern-profile/" style="text-decoration:underline; font-weight:600;">See his full profile →</a>
+          </p>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title"><span>🤝</span> Advisor Partnership</h3>
+          <p class="why-card-desc">
+            We partner seamlessly with estate planning attorneys, CPAs, family office managers, and trust officers nationwide, delivering clear workpapers and supporting filings.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title"><span>👥</span> Dedicated W2 Team</h3>
+          <p class="why-card-desc">
+            Fourteen full-time professionals ensure continuity and senior appraiser involvement from initial discovery through audit defense, without subcontracting.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title"><span>★</span> High-Reputation Practice</h3>
+          <p class="why-card-desc">
+            Inc. 5000 honoree in 2024 and 2025 with 180+ five-star Google reviews reflecting dependable timelines, transparent fees, and client satisfaction.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title"><span>📍</span> 50-State Practice</h3>
+          <p class="why-card-desc">
+            Representing clients and estates across the United States from regional hubs in Atlanta, Nashville, Orlando, and Louisville.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-card-title"><span>🌐</span> Core Practice Hub</h3>
+          <p class="why-card-desc">
+            Explore our comprehensive suite of transactional, financial reporting, and litigation services on our <a href="/business-valuation-services/" style="text-decoration:underline; font-weight:600;">business valuation services hub →</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Cost & Engagement Scoping -->
+  <section class="section-py bg-subtle">
+    <div class="container-narrow">
+      <div class="section-header">
+        <span class="section-eyebrow">Fees & Turnaround</span>
+        <h2 class="section-title">How Much Does an Estate or Gift Tax Valuation Cost?</h2>
+      </div>
+
+      <div class="info-callout-box">
+        <div class="price-highlight">$7,500 – $25,000 <span style="font-size: 1rem; font-weight: 500; color: #718096;">(Typical Estate/Gift Engagement)</span></div>
+        <p class="prose-text">
+          Most estate and gift tax valuations of a closely held business interest range from <strong>$7,500 to $25,000</strong>, with a typical timeline of <strong>4 to 8 weeks</strong>. The fee depends on the company's size and complexity, the number of entities or interests, and whether layered discounts or multiple transfer structures are involved.
+        </p>
+        <p class="prose-text" style="margin-top: 1rem;">
+          We quote a <strong>fixed fee up front</strong> after a short scoping conversation, so there are no surprises once the engagement begins.
+        </p>
+
+        <div style="margin-top: 1.75rem;">
+          <a href="/contact-us/" class="btn-primary" onclick="window.trackLeadEvent('estate_gift_tax_cost_cta', { cta: 'Request a Free Estimate' });">
+            Request a Free Estimate
+          </a>
+        </div>
+      </div>
+
+      <div style="margin-top: 3rem;">
+        <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.75rem;">How Long Does the Process Take?</h3>
+        <p class="prose-text">
+          A typical estate or gift tax valuation takes <strong>4 to 8 weeks</strong> from the point we have your financial records and transfer details. Timing depends on how quickly documents are provided and the complexity of the interest. When a filing deadline is tight, ask us about an <strong>expedited engagement</strong> during the initial call.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FAQ Section -->
+  <FaqSection title="Frequently Asked Questions: Estate & Gift Tax" items={faqs} />
+
+  <!-- 10. Closing CTA Band -->
+  <section class="closing-cta-section">
+    <div class="container">
+      <h2 class="closing-title">Get a Valuation That Holds Up</h2>
+      <p class="closing-subtitle">
+        Whether you are planning a gift, settling an estate, or defending a value already reported, an IRS-defensible appraisal starts with a conversation. Work directly with David Hern CPA ABV ASA, founder of Sofer Advisors, and his team.
+      </p>
+      <div class="closing-actions">
+        <a href="/contact-us/" class="btn-primary" onclick="window.trackLeadEvent('estate_gift_tax_closing_schedule', { cta: 'Schedule a Free Consultation' });">
+          Schedule a Free Consultation
+        </a>
+      </div>
+      <p class="closing-phone">
+        Or call us directly: <a href="tel:7707768852">770.776.8852</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const title = 'Contact Us & Request a Consultation | Sofer Advisors';
+const description = 'Schedule a confidential valuation consultation with David Hern CPA ABV ASA and the accredited valuation team at Sofer Advisors.';
+const canonicalUrl = 'https://soferadvisors.com/contact-us/';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Contact Us' }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonicalUrl}>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <section class="section" style="padding-top: 1rem;">
+    <div class="site-container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <span class="badge" style="background: var(--color-green-light); color: var(--color-primary-dark); font-weight: 700;">
+          Confidential & Direct
+        </span>
+        <h1 style="margin-top: 1rem;">Request a Consultation</h1>
+        <p class="section-lead" style="margin: 0.75rem auto 2.5rem;">
+          Connect directly with David Hern CPA ABV ASA and our senior valuation team. Every engagement begins with a complimentary initial discussion to assess scope, timing, and fee structure.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; max-width: 1040px; margin: 0 auto;">
+        <!-- Form Column -->
+        <div class="card" style="padding: 2.5rem;">
+          <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--color-primary-dark);">Send an Enquiry</h2>
+          <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 2rem;">
+            Fill out the details below. We typically respond within one business day with fixed-fee quote options.
+          </p>
+
+          <form id="consultation-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div>
+              <label for="fullName" style="display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.35rem;">Full Name *</label>
+              <input type="text" id="fullName" name="fullName" required placeholder="e.g., Sarah Jenkins" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border); border-radius: 6px; font-size: 1rem; font-family: inherit;" />
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div>
+                <label for="email" style="display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.35rem;">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="sarah@company.com" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border); border-radius: 6px; font-size: 1rem; font-family: inherit;" />
+              </div>
+              <div>
+                <label for="phone" style="display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.35rem;">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="770-555-0123" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border); border-radius: 6px; font-size: 1rem; font-family: inherit;" />
+              </div>
+            </div>
+
+            <div>
+              <label for="company" style="display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.35rem;">Company / Practice Name</label>
+              <input type="text" id="company" name="company" placeholder="e.g., Jenkins Capital LLC / Estate of..." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border); border-radius: 6px; font-size: 1rem; font-family: inherit;" />
+            </div>
+
+            <div>
+              <label for="serviceType" style="display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.35rem;">Valuation Purpose *</label>
+              <select id="serviceType" name="serviceType" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border); border-radius: 6px; font-size: 1rem; font-family: inherit; background-color: white;">
+                <option value="">Select Valuation Purpose...</option>
+                <option value="business_valuation">Comprehensive Business Valuation (General / M&A / Succession)</option>
+                <option value="estate_gift_tax">Estate & Gift Tax Valuation (Form 706/709 Compliance)</option>
+                <option value="litigation_support">Litigation Support & Expert Witness Testimony</option>
+                <option value="financial_reporting">Financial Reporting (ASC 805 / ASC 350 / 409A)</option>
+                <option value="exit_planning">Exit & Value Acceleration Planning</option>
+                <option value="other">Other Valuation Advisory</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" style="display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.35rem;">Project Details / Valuation Date</label>
+              <textarea id="message" name="message" rows="4" placeholder="Please describe the subject entity, approximate revenue or asset size, preferred valuation effective date, and any known filing deadlines..." style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border); border-radius: 6px; font-size: 1rem; font-family: inherit;"></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn btn-primary" style="padding: 0.9rem 1.75rem; font-size: 1rem; justify-content: center; margin-top: 0.5rem;">
+              Submit Consultation Request &rarr;
+            </button>
+          </form>
+
+          <div id="form-success" style="display: none; margin-top: 1.5rem; padding: 1.25rem; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; color: #065f46;">
+            <strong>Thank you!</strong> Your consultation request has been received. David Hern CPA ABV ASA and the team will review your project details and follow up promptly.
+          </div>
+        </div>
+
+        <!-- Contact & Assurance Column -->
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+          <div class="card" style="background: var(--color-bg-light); border-left: 4px solid var(--color-primary);">
+            <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--color-primary-dark);">Direct Communication</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 1.25rem; line-height: 1.7;">
+              Need an immediate answer regarding a filing deadline or complex estate structure? Contact our practice directly:
+            </p>
+            <p style="font-size: 1rem; margin-bottom: 0.5rem;">
+              <strong>Main Phone:</strong> <a href="tel:7707768852" style="color: var(--color-primary); font-weight: 700;">770.776.8852</a>
+            </p>
+            <p style="font-size: 1rem; margin-bottom: 0.5rem;">
+              <strong>Direct Email:</strong> <a href="mailto:info@soferadvisors.com" style="color: var(--color-primary); font-weight: 600;">info@soferadvisors.com</a>
+            </p>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 1rem;">
+              Office Locations: Atlanta, GA &bull; Nashville, TN &bull; Orlando, FL &bull; Louisville, KY
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--color-primary-dark);">The Sofer Fixed-Fee Guarantee</h3>
+            <ul style="padding-left: 1.25rem; font-size: 0.95rem; color: var(--color-text); line-height: 1.8;">
+              <li><strong>No Hourly Surprises:</strong> Every valuation engagement carries an all-inclusive, fixed-fee quote before any work commences.</li>
+              <li><strong>Senior Accredited Focus:</strong> Conducted and signed by David Hern CPA ABV ASA.</li>
+              <li><strong>Audit-Proof Standard:</strong> Prepared to withstand the most stringent IRS, DOL, and court scrutiny.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    const form = document.getElementById('consultation-form');
+    const successMsg = document.getElementById('form-success');
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        
+        // Dispatch GA4 event
+        if (typeof window.trackLeadEvent === 'function') {
+          window.trackLeadEvent('consultation_form_submit', {
+            service: document.getElementById('serviceType')?.value || 'general',
+            cta_location: 'contact_page'
+          });
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Submitting...';
+
+        setTimeout(() => {
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+        }, 600);
+      });
+    }
+  </script>
+</BaseLayout>
